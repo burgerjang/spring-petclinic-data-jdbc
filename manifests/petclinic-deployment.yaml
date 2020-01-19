@@ -23,8 +23,25 @@ spec:
           value: jdbc:mysql://mysql-db:3306/petclinic?autoReconnect=true&useSSL=false
         image: rozen88/spring-petclinic-data-jdbc
         name: petclinic
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          failureThreshold: 3
+          
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          failureThreshold: 3
         ports:
         - containerPort: 8080
         resources: {}
+
+      terminationGracePeriodSeconds: 30
       restartPolicy: Always
 status: {}
