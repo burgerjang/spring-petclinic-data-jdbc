@@ -5,5 +5,6 @@ kubectl apply -f petclinic-deployment.yaml -ndefault
 kubectl apply -f petclinic-ing.yaml -ndefault
 
 # host container log mount
+rm -f /logs/app.log
 mkdir -p /logs
 ln -s /var/log/containers/petclinic* /logs/app.log
