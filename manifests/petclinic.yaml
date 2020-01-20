@@ -33,7 +33,7 @@ spec:
     apiVersion: apps/v1beta2
     kind: Deployment
     name: petclinic
-  targetCPUUtilizationPercentage: 80
+  targetCPUUtilizationPercentage: 90
     
 ---
 apiVersion: extensions/v1beta1
@@ -58,6 +58,8 @@ spec:
       labels:
         io.kompose.service: petclinic
     spec:
+      hostname: petclinic
+      subdomain: pet-api
       containers:
       - env:
         - name: SPRING_DATASOURCE_URL
@@ -82,7 +84,13 @@ spec:
           failureThreshold: 3
         ports:
         - containerPort: 8080
-        resources: {}
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1"
 
       terminationGracePeriodSeconds: 30
       restartPolicy: Always
@@ -174,4 +182,4 @@ spec:
         persistentVolumeClaim:
           claimName: mysql-pv-claim
       restartPolicy: Always
-status: {}  
+status: {}
