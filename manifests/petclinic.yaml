@@ -145,6 +145,7 @@ spec:
         name: mysql-db
         ports:
         - containerPort: 3306
+        resources: {}
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
@@ -152,6 +153,5 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: mysql-pv-claim
-        resources: {}
       restartPolicy: Always
 status: {}  
