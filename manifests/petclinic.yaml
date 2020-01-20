@@ -27,6 +27,8 @@ metadata:
   labels:
     io.kompose.service: petclinic
 spec:
+  maxReplicas: 3
+  minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1beta2
     kind: Deployment
