@@ -64,7 +64,7 @@ spec:
       - env:
         - name: SPRING_DATASOURCE_URL
           value: jdbc:mysql://mysql-db:3306/petclinic?autoReconnect=true&useSSL=false
-        image: rozen88/spring-petclinic-data-jdbc
+        image: rozen88/spring-petclinic-data-jdbc:v1.0.1
         imagePullPolicy: Always
         name: petclinic
         readinessProbe:

@@ -11,7 +11,7 @@ services:
       - pet-network
 
   petclinic:
-    image: rozen88/spring-petclinic-data-jdbc
+    image: rozen88/spring-petclinic-data-jdbc:v1.0.1
     depends_on:
       - mysql-db
     environment:

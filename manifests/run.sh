@@ -11,6 +11,6 @@
 kubectl apply -f petclinic.yaml -ndefault
 
 ## host container log mount
-rm -f /logs/app.log
-mkdir -p /logs
-ln -s /var/log/containers/petclinic* /logs/app.log
+#rm -f /logs/app.log
+#mkdir -p /logs
+#ln -s /var/log/containers/petclinic* /logs/app.log
